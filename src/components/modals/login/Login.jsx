@@ -10,7 +10,6 @@ import { getRequiredTextSchema, storageKeys } from "../../../utils/consts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../../../utils/swal/messages";
-import { loginUser } from "../../../services/user";
 import { useUserData } from "../../../contexts/UserContext";
 
 const Login = () => {
@@ -28,15 +27,15 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (formData) => {
-    try {
-      const res = await loginUser(formData);
-      setUser(res?.data?.data?.user);
-      localStorage.setItem(storageKeys.token, res?.data?.data?.access_token);
-      navigate("/home");
-      closeModal();
-    } catch (e) {
-      ErrorMessage("Wrong credentials!");
-    }
+    // try {
+    //   const res = await loginUser(formData);
+    //   setUser(res?.data?.data?.user);
+    //   localStorage.setItem(storageKeys.token, res?.data?.data?.access_token);
+    //   navigate("/home");
+    //   closeModal();
+    // } catch (e) {
+    //   ErrorMessage("Wrong credentials!");
+    // }
   };
 
   return (
@@ -44,7 +43,6 @@ const Login = () => {
       <header className={classes.header}>
         <h2 className={classes.title}>Log in</h2>
         <img
-          load="lazy"
           className={classes.close}
           src={close}
           alt=""

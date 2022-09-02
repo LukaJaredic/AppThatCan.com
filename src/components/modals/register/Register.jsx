@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { getRequiredTextSchema } from "../../../utils/consts";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerUser } from "../../../services/user";
 import { ErrorMessage, SuccessMessage } from "../../../utils/swal/messages";
 import Login from "../login/Login";
 
@@ -32,13 +31,13 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (formData) => {
-    try {
-      await registerUser(formData);
-      SuccessMessage("You are now registered, log in to continue!");
-      openModal(<Login />);
-    } catch (e) {
-      ErrorMessage("This email address is taken!");
-    }
+    // try {
+    //   await registerUser(formData);
+    //   SuccessMessage("You are now registered, log in to continue!");
+    //   openModal(<Login />);
+    // } catch (e) {
+    //   ErrorMessage("This email address is taken!");
+    // }
   };
 
   return (
@@ -46,7 +45,6 @@ const Register = () => {
       <header className={classes.header}>
         <h2 className={classes.title}>Register</h2>
         <img
-          load="lazy"
           className={classes.close}
           src={close}
           alt=""
