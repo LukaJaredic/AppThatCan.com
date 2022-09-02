@@ -1,0 +1,84 @@
+@import "src/assets/style/mixins";
+
+.fieldWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.label{
+  @include font-regular;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.input{
+
+  background: transparent;
+  height: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  outline:none;
+  @include font-regular;
+  font-size: 32px;
+  color: var(--green);
+
+  &:hover, &:focus {
+    outline:none;
+    border-color: var(--green-dark);
+    color: var(--green-dark);
+
+  }
+
+  &.error{
+    border-color: var(--red);
+    color: var(--red);
+
+
+
+    &:hover, &:focus {
+      border-color: var(--purple);
+      color: var(--purple);
+
+    }
+  }
+
+}
+
+.errorMessage{
+  @include font-regular;
+  color:var(--red);
+
+}
+
+.value{
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:45px;
+  padding-inline: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--green);
+
+  &.error {
+    border-color: var(--red);
+    .fileName {
+      color: var(--red)
+    }
+  }
+
+}
+
+.fileName{
+  max-width: 144px;
+  @include text-truncate;
+  color: var(--green)
+}
+
+.remove{
+  cursor: pointer;
+}

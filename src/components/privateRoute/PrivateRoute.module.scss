@@ -1,0 +1,53 @@
+@import "src/assets/style/mixins";
+
+.header{
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding-left:10%;
+  padding-right:10%;
+  height: 50px;
+  background-color: var(--green-weak);
+  border-bottom: 1px solid var(--green);
+}
+
+.active, .inactive{
+  @include font-regular;
+  font-size: 16px;
+}
+
+.inactive{
+  color: var(--green);
+}
+
+.main{
+  width:100%;
+  height: calc(100vh - 50px);
+  overflow: auto;
+}
+
+.logout{
+  @include primary-button;
+  height: 35px;
+  width: 80px;
+}
+
+.links{
+  & > *:not(:first-child){
+    margin-left: 40px;
+  }
+}
+
+.rightside{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name{
+  @include font-regular;
+  font-size: 18px;
+  line-height: 28px;
+  margin-right: 22px;
+}

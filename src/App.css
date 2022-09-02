@@ -1,5 +1,9 @@
+@import "/src/assets/style/colors.scss";
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
+  font-family: Lato-Regular, sans-serif;
 }
 
 .App-logo {
@@ -26,6 +30,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+body, :root, html, p, h1, h2, h3{
+  margin:0;
+  padding:0;
 }
 
 @keyframes App-logo-spin {

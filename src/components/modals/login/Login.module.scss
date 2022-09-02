@@ -1,0 +1,48 @@
+@import "/src/assets/style/mixins";
+
+.modal{
+  width: 385px;
+  background: white;
+  padding:25px 30px 30px 30px;
+  border-radius: 6px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.title{
+  @include font-bold;
+  color:var(--text-primary);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.close{
+  cursor: pointer;
+  transition: all ease-in-out 100ms;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.input{
+  margin-bottom: 20px;
+}
+
+.footer{
+  display: flex;
+  justify-content: end;
+}
+
+.submit{
+  margin-top: 30px;
+  @include secondary-button;
+}
+
+.register{
+  margin-top: 30px;
+  @include primary-button;
+}

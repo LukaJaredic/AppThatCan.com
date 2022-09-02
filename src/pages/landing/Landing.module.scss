@@ -1,0 +1,68 @@
+
+@import "/src/assets/style/mixins";
+.page{
+  padding: 50px 30px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.title{
+  text-align: left;
+  @include font-bold;
+  font-size: 5rem;
+  line-height: 5rem;
+  letter-spacing: calc(1em * -0.07);
+  margin-bottom: 2rem;
+}
+
+.header{
+  h2{
+    @include font-regular;
+    font-size: 2rem;
+    line-height: 2.1rem;
+
+    &.questionMark{
+      font-size: 20rem;
+      line-height: 20rem;
+    }
+  }
+}
+
+.findInspiration{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  gap: 2rem;
+}
+
+.seeSolutions, .devRegister{
+  @include primary-button;
+  &:hover{
+    color:white;
+  }
+  width: fit-content;
+  padding-inline: 1rem;
+}
+
+.seeSolutions{
+  margin-top: 6rem;
+}
+
+.firstCell{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.idea{
+  height:400px;
+}

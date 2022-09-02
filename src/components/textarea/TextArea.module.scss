@@ -1,0 +1,63 @@
+@import "src/assets/style/mixins";
+
+.fieldWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.label{
+  @include font-regular;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.input{
+
+  resize: none;
+  height: 12em;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  outline:none;
+  @include font-regular;
+  font-size: 16px;
+  color: var(--text-primary);
+  padding: 8px;
+
+  &:hover, &:focus {
+    outline:none;
+    border-color: var(--green-dark);
+  }
+
+  &.error{
+    border-color: var(--red);
+
+    &:hover, &:focus {
+      border-color: var(--purple);
+    }
+  }
+
+}
+
+.errorMessage{
+  @include font-regular;
+  color:var(--red);
+
+}
+
+::-webkit-input-placeholder { /* Edge */
+  @include font-regular;
+  font-size: 16px;
+  color:var(--text-weak);
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  @include font-regular;
+  font-size: 16px;
+  color:var(--text-weak);
+}
+
+::placeholder {
+  @include font-regular;
+  font-size: 16px;
+  color:var(--text-weak);
+}
