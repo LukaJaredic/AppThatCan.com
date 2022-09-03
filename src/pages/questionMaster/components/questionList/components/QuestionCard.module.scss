@@ -1,0 +1,43 @@
+@import "/src/assets/style/mixins";
+.card{
+  background-color: white;
+  transition: all ease-in-out 100ms;
+  border-radius: 4px;
+  width:600px;
+  margin-block: 20px;
+  margin-inline: auto;
+  cursor: pointer;
+  border: 1px solid var(--green);
+  text-align: left;
+  padding: 10px;
+
+  &:hover{
+    background-color: var(--green-weak);
+  }
+}
+.title{
+  @include font-bold;
+  font-size: 16px;
+  line-height: 22px;
+  @include two-line-truncate;
+  margin-bottom: 15px;
+}
+
+.description{
+  @include four-line-truncate;
+  @include font-regular;
+  color: var(--text-weak);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.meta{
+  @include font-regular;
+  font-size: 12px;
+  color:var(--green);
+}
+
+.author{
+  margin-top: 9px;
+  color:var(--text-weak)
+}

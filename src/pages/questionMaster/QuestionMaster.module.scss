@@ -1,5 +1,6 @@
 .page{
   width:100vw;
+  overflow: hidden;
   height:calc(100vh - 58px);
   display: flex;
   & > *{
