@@ -50,7 +50,6 @@ const Navbar = () => {
                 onClick={() => {
                   setUser(null);
                   localStorage.clear();
-                  window.location.reload();
                 }}
               >
                 Log out
