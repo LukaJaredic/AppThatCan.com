@@ -1,0 +1,73 @@
+@import "/src/assets/style/mixins";
+
+.wrapper{
+  width: 585px;
+  padding-right:2px;
+  background: linear-gradient(0deg, rgba(76,175,80,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 45%, rgba(76,175,80,1) 50%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 75%, rgba(76,175,80,1) 100%);
+}
+
+.controls{
+  width: 100%;
+  height:100%;
+  background-color: white;
+  text-align: left;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include font-bold;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.subtitle{
+  @include font-bold;
+  margin-bottom: 2rem;
+}
+
+.inputs{
+  flex-grow: 1;
+  padding-inline: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.row{
+  display: flex;
+  gap:10%;
+  & > * {
+    flex-basis: 45%;
+  }
+}
+.views{
+  width:45%;
+}
+
+.label{
+  @include font-bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-decoration: underline;
+  text-decoration-color: var(--green);
+  text-underline-offset: 4px;
+  margin-left: -30px;
+}
+
+
+.clearAll {
+  width: 100%;
+  font-size: 36px;
+  color: var(--red);
+  text-align: right;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  &:hover{
+    color:red;
+  }
+  &:active{
+    color:black;
+  }
+}

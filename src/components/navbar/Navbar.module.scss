@@ -1,0 +1,58 @@
+@import "/src/assets/style/mixins";
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 0;
+  height: 55px;
+  padding:0;
+
+
+  li{
+    list-style: none;
+    padding-inline: 30px;
+  }
+}
+
+.wrapper {
+  padding-bottom: 2px;
+  background: linear-gradient(90deg, rgba(76,175,80,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(76,175,80,1) 100%);
+}
+
+.inactiveLink {
+  @include font-bold;
+  font-size: 16px;
+  color: var(--green);
+  margin-right: 20px;
+}
+
+.navLink {
+  color: var(--green-dark);
+}
+
+.logo{
+  img{
+    width:50px;
+    height:50px;
+
+  }
+}
+
+.logIn{
+  @include primary-button;
+  width:70px;
+  height:30px;
+}
+
+.logOut{
+  @include secondary-button;
+  width:70px;
+  height:30px;
+}
+
+.rightLinks{
+  display: flex;
+  align-items: center;
+}

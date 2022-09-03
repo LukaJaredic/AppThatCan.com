@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 
 import Router from "./pages/router/Router";
 import ModalContextProvider from "./contexts/ModalContext";

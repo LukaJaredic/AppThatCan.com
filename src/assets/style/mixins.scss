@@ -44,6 +44,30 @@
   }
 }
 
+@mixin primary-button-important {
+  width: 144px !important;
+  height: 45px !important;
+  background-color: #4CAF50 !important;
+  color: #E8F5E9 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 4px !important;
+  border:none !important;
+  transition: all ease-in-out 100ms !important;
+  @include font-regular;
+  font-size: 16px !important;
+
+  &:hover{
+    background-color: #81C784 !important;
+  }
+
+  &:active {
+    background-color:#E8F5E9 !important;
+    color: #4CAF50 !important;
+  }
+}
+
 @mixin secondary-button{
   color: #4CAF50;
   width: 144px;

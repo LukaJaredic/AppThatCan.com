@@ -1,0 +1,25 @@
+.wrapper{
+  flex-grow: 1;
+  position: relative;
+  overflow-y: auto;
+}
+
+.add{
+  color:var(--green);
+  position: fixed;
+  top: 85px;
+  left: 620px;
+  font-size: 40px;
+  z-index: 2;
+  transition: all ease-in-out 300ms;
+  cursor: pointer;
+
+  &:hover{
+    color:var(--green-dark);
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  &:active{
+    transform: scale(0.9);
+  }
+}

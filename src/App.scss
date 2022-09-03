@@ -1,4 +1,5 @@
 @import "/src/assets/style/colors.scss";
+@import "/src/assets/style/mixins.scss";
 @import '~antd/dist/antd.css';
 
 .App {
@@ -43,5 +44,15 @@ body, :root, html, p, h1, h2, h3{
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.swal2-confirm.swal2-styled {
+  @include primary-button-important;
+
+  &, &:active, &:focus, &:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 }

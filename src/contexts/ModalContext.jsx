@@ -18,7 +18,13 @@ const ModalContextProvider = ({ children }) => {
   return (
     <ModalContext.Provider value={{ modal, openModal, closeModal, setModal }}>
       {children}
-      <Modal centered={true} footer={null} title={null} visible={modal.open}>
+      <Modal
+        centered={true}
+        footer={null}
+        title={null}
+        visible={modal.open}
+        destroyOnClose={true}
+      >
         {modal.content}
       </Modal>
     </ModalContext.Provider>

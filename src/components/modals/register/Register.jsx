@@ -10,12 +10,13 @@ import { getRequiredTextSchema } from "../../../utils/consts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage, SuccessMessage } from "../../../utils/swal/messages";
 import Login from "../login/Login";
+import { registerUser } from "../../../services/user";
 
-const Register = () => {
+const Register = ({ onLoginFinish }) => {
   const { closeModal, openModal } = useModal();
   const schema = yup.object({
     email: getRequiredTextSchema().email("This is not a valid email address"),
-    name: getRequiredTextSchema(5),
+    username: getRequiredTextSchema(5),
     password: getRequiredTextSchema(8),
     "confirm-password": getRequiredTextSchema(8).test({
       message: "The passwords don't match",
@@ -31,13 +32,14 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (formData) => {
-    // try {
-    //   await registerUser(formData);
-    //   SuccessMessage("You are now registered, log in to continue!");
-    //   openModal(<Login />);
-    // } catch (e) {
-    //   ErrorMessage("This email address is taken!");
-    // }
+    try {
+      formData["confirm-password"] = undefined;
+      await registerUser(formData);
+      SuccessMessage("You are now registered, log in to continue!");
+      openModal(<Login onLoginFinish={onLoginFinish} />);
+    } catch (e) {
+      ErrorMessage("This email address is taken!");
+    }
   };
 
   return (
@@ -63,8 +65,8 @@ const Register = () => {
           label={"Name"}
           placeholder={"How should we call you?"}
           className={classes.input}
-          error={errors?.name?.message}
-          register={register("name")}
+          error={errors?.username?.message}
+          register={register("username")}
         />
         <Input
           label={"Password"}
