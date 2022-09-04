@@ -15,3 +15,8 @@ export const getQuestions = () => axiosInstance.get("/posts");
 export const getOneQuestion = (id) => axiosInstance.get(`/posts/${id}`);
 export const postComment = (post, comment) =>
   axiosInstance.post(`/posts/${post}/comment`, comment);
+
+export const startWorkingOnSolution = (postID, { date }) =>
+  axiosInstance.post(`/posts/${postID}/workingOnSolution`, {
+    finishEstimation: date,
+  });

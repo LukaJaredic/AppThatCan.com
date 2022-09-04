@@ -1,0 +1,37 @@
+@import "/src/assets/style/mixins";
+
+.modal{
+  width:385px;
+  background-color: white;
+  border-radius: 6px;
+  padding:20px 30px;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  img{
+    cursor: pointer;
+  }
+}
+
+.title{
+    @include font-bold;
+  font-size: 22px;
+}
+
+.main{
+  margin-block: 1rem;
+}
+
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit{
+  @include primary-button;
+}

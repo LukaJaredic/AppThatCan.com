@@ -30,6 +30,7 @@ const Comments = ({ comments, name = "Comments", id }) => {
 
   const onSubmit = (formData) => {
     if (!user) return openModal(<Login onLoginFinish={post} />);
+    else post();
 
     async function post() {
       try {
@@ -71,7 +72,7 @@ const Comments = ({ comments, name = "Comments", id }) => {
         .sort((a, b) => b.uploaded.localeCompare(a.uploaded))
         .map((comment) => (
           <div className={classes.comment} key={comment._id}>
-            <h3 className={classes.author}>{comment.author}</h3>
+            <h3 className={classes.author}>{comment.author.username}</h3>
             <p className={classes.date}>
               {format(new Date(comment.uploaded), "dd.MM.yyyy. HH:mm")}
             </p>

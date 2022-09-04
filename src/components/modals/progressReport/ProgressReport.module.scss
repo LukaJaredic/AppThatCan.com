@@ -1,0 +1,55 @@
+@import "/src/assets/style/mixins";
+
+.modal{
+  width: 600px;
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px 30px;
+
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img{
+    cursor: pointer;
+  }
+}
+
+.title{
+  @include font-bold;
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 9px;
+}
+
+.author{
+  @include font-bold;
+}
+
+.estimation{
+  @include font-regular;
+  width: 100%;
+  border-bottom: 1px solid var(--green);
+}
+
+.main{
+  margin-block: 1rem;
+  @include font-regular;
+}
+
+.empty{
+  font-size: 16px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gotoProfile{
+  @include secondary-button;
+}

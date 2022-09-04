@@ -36,7 +36,7 @@ const Login = ({ onLoginFinish }) => {
 
       localStorage.setItem(storageKeys.token, res?.data?.token);
       let user = await getCurrentUser();
-      setUser(res?.data);
+      setUser(user?.data);
       closeModal();
       onLoginFinish ? onLoginFinish() : navigate(routes.questions);
     } catch (e) {

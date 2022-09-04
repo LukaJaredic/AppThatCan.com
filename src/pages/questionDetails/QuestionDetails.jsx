@@ -11,6 +11,7 @@ import Comments from "./components/Comments";
 import { fadeIn } from "../../utils/animations";
 import { motion } from "framer-motion";
 import { getFileLink } from "../../services/axios";
+import Development from "./components/Development";
 
 const QuestionDetails = () => {
   const { id } = useParams();
@@ -51,7 +52,9 @@ const QuestionDetails = () => {
     },
     {
       title: `In Development (${question.workingOnSolution?.length || 0})`,
-      component: <>in development</>,
+      component: (
+        <Development postID={id} developmentList={question.workingOnSolution} />
+      ),
     },
   ];
 

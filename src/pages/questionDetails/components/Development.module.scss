@@ -1,0 +1,53 @@
+@import "/src/assets/style/mixins";
+
+.empty{
+  @include font-bold;
+}
+
+.add{
+  font-size: 25px;
+  color: var(--green);
+
+  transition: all ease-in-out 300ms;
+  cursor: pointer;
+
+  &:hover{
+    color:var(--green-dark);
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  &:active{
+    transform: scale(0.9);
+  }
+
+  margin-block: 1rem;
+}
+
+.dev{
+  width: fit-content;
+  max-width: 100%;
+  border-bottom: var(--green) 1px solid;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: all ease-in-out 200ms;
+  &:hover{
+    transform:translateX(5%);
+    border-color: var(--green-dark);
+
+    .author{
+      color:var(--green);
+    }
+  }
+}
+
+.author{
+  @include font-bold;
+  font-size: 16px;
+
+  transition: all ease-in-out 200ms;
+}
+
+.estimation{
+  @include font-regular;
+  font-size: 12px;
+}
