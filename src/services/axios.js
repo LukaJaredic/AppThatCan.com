@@ -19,3 +19,6 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+export const getFileLink = (filename) =>
+  `http://127.0.0.1:3000/attachments/${filename}`;

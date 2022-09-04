@@ -10,6 +10,7 @@ import TabLayout from "../../components/layout/tabLayout/TabLayout";
 import Comments from "./components/Comments";
 import { fadeIn } from "../../utils/animations";
 import { motion } from "framer-motion";
+import { getFileLink } from "../../services/axios";
 
 const QuestionDetails = () => {
   const { id } = useParams();
@@ -73,6 +74,18 @@ const QuestionDetails = () => {
           <div className={classes.mainOuter}>
             <main className={classes.main}>{question.text}</main>
           </div>
+          {question.attachments.length > 0 ? (
+            <footer className={classes.attachments}>
+              {question.attachments.map((image, i) => (
+                <img
+                  key={i}
+                  className={classes.image}
+                  src={getFileLink(image)}
+                  alt={image}
+                />
+              ))}
+            </footer>
+          ) : null}
         </div>
         <TabLayout tabs={tabs} className={classes.tabs} />
       </div>

@@ -17,6 +17,17 @@ const QuestionForm = () => {
   const schema = yup.object({
     title: getRequiredTextSchema(5, 200),
     description: getRequiredTextSchema(5, 2000),
+    attachments: yup.array().test({
+      message: "Unsupported file format, only pictures allowed",
+      test: (val) => {
+        if (val.length === 0) return true;
+        for (let file of val) {
+          let extension = file.name.split(".").pop();
+          if (extension !== "jpg" && extension !== "png") return false;
+        }
+        return true;
+      },
+    }),
   });
 
   const { closeModal } = useModal();
@@ -26,7 +37,12 @@ const QuestionForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+    setValue,
+    watch,
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: { attachments: [] },
+  });
 
   const onSubmit = async (formData) => {
     try {
@@ -59,7 +75,14 @@ const QuestionForm = () => {
           placeholder={"Elaborate your problem here in more detail"}
           error={errors?.description?.message}
         />
-        <FileInput label={"Attachments (Optional)"} />
+        <FileInput
+          error={errors?.attachments?.message}
+          maxFiles={10}
+          label={"Attachments (Optional)"}
+          name={"attachments"}
+          setValue={setValue}
+          value={watch("attachments")}
+        />
       </main>
       <footer className={classes.footer}>
         <button className={classes.send}>Send</button>

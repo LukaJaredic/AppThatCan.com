@@ -12,6 +12,7 @@ const FileInput = ({
   value,
   name,
   setValue,
+  maxFiles = 1,
   ...rest
 }) => {
   const inputRef = useRef();
@@ -21,19 +22,46 @@ const FileInput = ({
       <label className={classes.label}>{label}</label>
       <input
         hidden
+        accept={".jpg, .png"}
         type={"file"}
         {...rest}
         ref={inputRef}
         onChange={(e) => {
           if (e.target?.files?.[0]) {
-            setValue(name, e.target?.files?.[0], { shouldValidate: true });
+            if (
+              !value
+                .map((file) => file.name)
+                .includes(e.target?.files?.[0].name)
+            )
+              setValue(name, [...value, e.target?.files?.[0]], {
+                shouldValidate: true,
+              });
             e.target.type = "text";
             e.target.value = "";
             e.target.type = "file";
           }
         }}
       />
-      {!value ? (
+      {value.length > 0
+        ? value.map((file) => (
+            <div className={clsx(classes.value, error ? classes.error : null)}>
+              <p className={classes.fileName}>{file.name}</p>
+              <img
+                src={close}
+                alt=""
+                className={classes.remove}
+                onClick={() =>
+                  setValue(
+                    name,
+                    value.filter((f) => f.name !== file.name),
+                    { shouldValidate: true }
+                  )
+                }
+              />
+            </div>
+          ))
+        : null}
+      {value.length < maxFiles ? (
         <button
           type={"button"}
           onClick={() => inputRef.current?.click()}
@@ -41,18 +69,7 @@ const FileInput = ({
         >
           <PlusCircleOutlined />
         </button>
-      ) : (
-        <div className={clsx(classes.value, error ? classes.error : null)}>
-          <p className={classes.fileName}>{value.name}</p>
-          <img
-            load="lazy"
-            src={close}
-            alt=""
-            className={classes.remove}
-            onClick={() => setValue(name, undefined, { shouldValidate: true })}
-          />
-        </div>
-      )}
+      ) : null}
       {error ? <p className={classes.errorMessage}>{error}</p> : null}
     </div>
   );
