@@ -1,0 +1,53 @@
+@import "/src/assets/style/mixins";
+.page{
+  width: 100vw;
+  height:calc(100vh - 58px);
+  overflow-y: auto;
+  text-align: left;
+  padding-top: 1.5rem;
+}
+
+.title{
+  @include font-bold;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: calc(1em * -0.05);
+}
+
+.meta{
+  @include font-regular;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-weak);
+}
+
+.mainOuter{
+  padding-block: 1px;
+  background: linear-gradient(90deg,  rgba(255,255,255,1) 0%, rgba(76,175,80,1) 100%);
+  margin-top: 1rem;
+
+}
+.main{
+  @include font-regular;
+  background-color: white;
+  font-size: 14px;
+  padding-block: 2rem;
+  margin-bottom: 0;
+}
+
+.tabs{
+  min-width:500px;
+}
+
+.layout{
+  display: flex;
+  & > * {
+    height: calc(100vh - 58px - 1.5rem);
+    overflow-y: auto;
+    padding: 0 30px 40px 30px;
+  }
+}
+
+.layoutLeft{
+ flex-grow:1;
+}

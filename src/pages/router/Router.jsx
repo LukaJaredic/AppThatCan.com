@@ -4,6 +4,7 @@ import Landing from "../landing/Landing";
 import QuestionMaster from "../questionMaster/QuestionMaster";
 import { routes } from "./routes";
 import NavLayout from "../../components/layout/navLayout/NavLayout";
+import QuestionDetails from "../questionDetails/QuestionDetails";
 
 const Router = () => {
   return (
@@ -14,6 +15,14 @@ const Router = () => {
         element={
           <NavLayout>
             <QuestionMaster />
+          </NavLayout>
+        }
+      />
+      <Route
+        path={routes.questionDetails}
+        element={
+          <NavLayout>
+            <QuestionDetails />
           </NavLayout>
         }
       />

@@ -39,5 +39,7 @@
 
 .author{
   margin-top: 9px;
-  color:var(--text-weak)
+  color:var(--text-weak);
+  display: flex;
+  justify-content: space-between;
 }

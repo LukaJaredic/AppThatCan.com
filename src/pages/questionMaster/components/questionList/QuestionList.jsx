@@ -46,13 +46,15 @@ const QuestionList = ({ filters }) => {
       <PlusCircleFilled className={classes.add} onClick={checkUserAndProceed} />
       <div>
         {filteredQuestions.length > 0 ? (
-          filteredQuestions.map((question, index) => (
-            <QuestionCard
-              key={question._id}
-              question={question}
-              index={index}
-            />
-          ))
+          filteredQuestions
+            .sort((a, b) => b.viewNumber - a.viewNumber)
+            .map((question, index) => (
+              <QuestionCard
+                key={question._id}
+                question={question}
+                index={index}
+              />
+            ))
         ) : (
           <motion.div {...fadeIn(1)} className={classes.emptyWrapper}>
             <div className={classes.empty}>

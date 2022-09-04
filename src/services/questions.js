@@ -7,3 +7,6 @@ export const postQuestion = (formData) =>
   });
 
 export const getQuestions = () => axiosInstance.get("/posts");
+export const getOneQuestion = (id) => axiosInstance.get(`/posts/${id}`);
+export const postComment = (post, comment) =>
+  axiosInstance.post(`/posts/${post}/comment`, comment);

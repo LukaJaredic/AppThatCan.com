@@ -7,7 +7,7 @@ export const filterQuestions = (questions, filters) => {
     );
   if (filters.views)
     filteredQuestions = filteredQuestions.filter(
-      (q) => q.views >= filters.views
+      (q) => q.viewNumber >= filters.views
     );
 
   if (filters.minSolutions)
