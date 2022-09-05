@@ -10,6 +10,8 @@ import { ErrorMessage } from "../../../utils/swal/messages";
 import { startWorkingOnSolution } from "../../../services/questions";
 import { useParams } from "react-router-dom";
 import { useQueryClient } from "react-query";
+import TextArea from "../../textarea/TextArea";
+import { getRequiredTextSchema } from "../../../utils/consts";
 
 const StartDevelopmentForm = ({ id }) => {
   const { closeModal } = useModal();
@@ -18,6 +20,7 @@ const StartDevelopmentForm = ({ id }) => {
       .date()
       .required("Field required")
       .min(new Date(), "Field invalid"),
+    text: getRequiredTextSchema(3, 1000),
   });
 
   const {
@@ -33,6 +36,7 @@ const StartDevelopmentForm = ({ id }) => {
 
   const onSubmit = async (formData) => {
     try {
+      formData.uploadDate = new Date();
       await startWorkingOnSolution(id, formData);
       client.invalidateQueries("questions");
       closeModal();
@@ -51,6 +55,14 @@ const StartDevelopmentForm = ({ id }) => {
           label={"Estimated date of development end"}
           register={register("date")}
           error={errors?.date?.message}
+        />
+        <TextArea
+          register={register("text")}
+          label={"Initial report"}
+          placeholder={
+            "Insert a short vision of software solution you will build"
+          }
+          error={errors?.text?.message}
         />
       </main>
       <footer className={classes.footer}>

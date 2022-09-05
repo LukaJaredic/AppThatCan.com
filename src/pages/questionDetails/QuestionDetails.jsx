@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import classes from "./QuestionDetails.module.scss";
 import { useParams } from "react-router-dom";
@@ -15,8 +15,9 @@ import Development from "./components/Development";
 
 const QuestionDetails = () => {
   const { id } = useParams();
+  const questionRef = useRef(id);
   const { data, isLoading, isError, isFetching } = useQuery(
-    ["questions", id],
+    ["questions", questionRef.current],
     () => getOneQuestion(id)
   );
 

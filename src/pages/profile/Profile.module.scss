@@ -1,0 +1,58 @@
+@import "/src/assets/style/mixins";
+
+.page{
+  width: 100vw;
+  height: calc(100vh - 57px);
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  padding: 30px;
+  & > * {
+    overflow-y: auto;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.61);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.61);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(76,175,80,0.61);
+    padding: 20px 30px;
+  }
+}
+
+.posts{
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.cardTitle{
+  @include font-bold;
+  text-align: left;
+  font-size: 18px;
+}
+
+.basicInformation{
+  text-align: left;
+  @include font-regular;
+  display: flex;
+  justify-content: space-between;
+  gap:2rem;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+
+.leftSide{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  .cardTitle {
+    padding-bottom: 2rem;
+  }
+  .info{
+    padding-bottom: .7rem;
+  }
+}
+
+.info{
+  font-size: 14px;
+}

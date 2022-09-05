@@ -7,8 +7,8 @@ import { fadeIn } from "../../../utils/animations";
 
 const TabLayout = ({ tabs, className }) => {
   const [currentTab, setCurrentTab] = useState(
-    localStorage.getItem(window.location.pathname)
-      ? +localStorage.getItem(window.location.pathname)
+    localStorage.getItem(window?.location?.pathname)
+      ? +localStorage.getItem(window?.location?.pathname)
       : 0
   );
   return (
@@ -18,7 +18,7 @@ const TabLayout = ({ tabs, className }) => {
           <span
             key={index}
             onClick={() => {
-              localStorage.setItem(window.location.pathname, index);
+              localStorage.setItem(window?.location?.pathname, index);
               setCurrentTab(index);
             }}
             className={clsx(

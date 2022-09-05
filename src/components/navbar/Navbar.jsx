@@ -41,7 +41,7 @@ const Navbar = () => {
                     ? clsx(classes.navLink, classes.inactiveLink)
                     : classes.inactiveLink
                 }
-                to={routes.myProfile}
+                to={routes.profile.replace(":id", user.id || user._id)}
               >
                 My profile
               </NavLink>

@@ -14,6 +14,7 @@ const Development = ({ developmentList, postID }) => {
   const openReportsModal = (development) => {
     openModal(
       <ProgressReport
+        projectID={postID}
         author={development.author}
         reports={development.reports}
         estimation={development.finishEstimation}

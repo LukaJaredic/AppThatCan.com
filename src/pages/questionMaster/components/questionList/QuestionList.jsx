@@ -13,7 +13,7 @@ import { filterQuestions } from "./utils/filter";
 import { fadeIn } from "../../../../utils/animations";
 import { motion } from "framer-motion";
 
-const QuestionList = ({ filters }) => {
+const QuestionList = ({ fetchedQuestions, filters, emptyMessage }) => {
   const { user } = useUserData();
   const { openModal } = useModal();
   const { data, isFetching, isError, isLoading } = useQuery(
@@ -22,10 +22,11 @@ const QuestionList = ({ filters }) => {
     {
       cacheTime: 100000,
       staleTime: 100000,
+      enabled: !fetchedQuestions,
     }
   );
 
-  const questions = data?.data || [];
+  const questions = fetchedQuestions || data?.data || [];
 
   const checkUserAndProceed = () => {
     if (user) openModal(<QuestionForm />);
@@ -43,7 +44,12 @@ const QuestionList = ({ filters }) => {
 
   return (
     <div className={classes.wrapper}>
-      <PlusCircleFilled className={classes.add} onClick={checkUserAndProceed} />
+      {fetchedQuestions ? null : (
+        <PlusCircleFilled
+          className={classes.add}
+          onClick={checkUserAndProceed}
+        />
+      )}
       <div>
         {filteredQuestions.length > 0 ? (
           filteredQuestions
@@ -59,7 +65,7 @@ const QuestionList = ({ filters }) => {
           <motion.div {...fadeIn(1)} className={classes.emptyWrapper}>
             <div className={classes.empty}>
               <motion.div {...fadeIn(2)}>
-                No results match given parameters :(
+                {emptyMessage || "No results match given parameters :("}
               </motion.div>
             </div>
           </motion.div>
