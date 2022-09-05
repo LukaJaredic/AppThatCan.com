@@ -2,7 +2,7 @@ import axios from "axios";
 import { storageKeys } from "../utils/consts";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://127.0.0.1:3000/api",
+  baseURL: "https://app-that-can.herokuapp.com/api",
 });
 
 axiosInstance.interceptors.request.use(
