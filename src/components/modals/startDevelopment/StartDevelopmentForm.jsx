@@ -57,6 +57,7 @@ const StartDevelopmentForm = ({ id }) => {
           error={errors?.date?.message}
         />
         <TextArea
+          className={classes.textarea}
           register={register("text")}
           label={"Initial report"}
           placeholder={

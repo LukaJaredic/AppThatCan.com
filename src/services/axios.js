@@ -21,4 +21,4 @@ axiosInstance.interceptors.request.use(
 );
 
 export const getFileLink = (filename) =>
-  `http://127.0.0.1:3000/attachments/${filename}`;
+  `https://app-that-can.herokuapp.com/attachments/${filename}`;

@@ -32,6 +32,10 @@
   justify-content: flex-end;
 }
 
+.textarea{
+  margin-top: 16px;
+}
+
 .submit{
   @include primary-button;
 }
